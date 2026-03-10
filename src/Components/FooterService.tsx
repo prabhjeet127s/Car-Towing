@@ -3,7 +3,7 @@ import React from 'react'
 const FooterService = () => {
     return (
 
-        <section className="bg-[#0B2E57] text-white py-5 pt-10">
+        <section className="bg-purple-900 text-white py-5 pt-10">
             <div className="max-w-7xl mx-auto px-2 text-center">
                 <h2 className="text-4xl font-semibold mb-10">
                     Towber By The Numbers
@@ -20,7 +20,7 @@ const FooterService = () => {
                         <p className="mt-4 text-lg">Satisfied Clients and Counting</p>
 
                     
-                        <button className="mt-10 bg-white text-[#0B2E57] px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
+                        <button className="mt-10 bg-white text-purple-900 px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
                             BOOK SERVICE
                         </button>
                     </div>
@@ -35,8 +35,6 @@ const FooterService = () => {
             </div>
 
         </section>
-
-
 
     )
 }

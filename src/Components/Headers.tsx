@@ -5,20 +5,20 @@ import { IoIosCall } from "react-icons/io";
 
 const Headers = () => {
     return (
-        <div className='   flex justify-between '   >
+        <div className='  p-2 flex justify-between  '   >
             <div className='flex justify-center items-center p-2 px-4  '    >
                 <img src="/images/logo.png" alt="na"
                     className='h-25 w-25'
                 />
             </div>
             <nav className='flex shadow-2xl gap-5 justify-center items-center'    >
-                <a className='text-white hover:text-black text-xl font-semibold' href="#">SERVICES</a>
-                <a className='text-white hover:text-black text-xl font-semibold  ' href="">ABOUT US</a>
-                <a className='text-white hover:text-black text-xl font-semibold ' href=""> CONTACT US </a>
+                <a className='text-white hover:text-black md:text-xl font-semibold' href="#">SERVICES</a>
+                <a className='text-white hover:text-black md:text-xl font-semibold  ' href="">ABOUT US</a>
+                <a className='text-white hover:text-black md:text-xl font-semibold ' href=""> CONTACT US </a>
             </nav>
 
-            <button className='p-2 rounded-xl  bg-purple-900 h-14 font-semibold px-4 mt-6 mr-6  text-white  flex justify-center items-center' >
-                <span><IoIosCall className='text-white size-6  pr-2' /></span>
+            <button className='md:p-5 rounded-xl  bg-purple-900 md:h-14 font-semibold md:px-4 md:mt-6 m-auto md:mr-6  text-white  flex flex-col md:flex-row justify-center items-center' >
+                <span><IoIosCall className='text-white md:size-6 p-1 m-1 md:pr-2' /></span>
                 Toll Free
             </button>
 
