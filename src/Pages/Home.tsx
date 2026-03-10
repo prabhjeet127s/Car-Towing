@@ -1,10 +1,16 @@
 import React from 'react'
 import Headers from '../Components/Headers'
 import Slidesautoplay from '../Components/Slidesautoplay'
-
 import Slideautoplaycars from '../Components/Slideautoplaycars'
+import { workdata } from '../workdata'
+import FooterService from '../Components/FooterService'
+import Aboutcard from '../Components/Aboutcard'
+
+
 
 const Home = () => {
+
+
     return (
         <>
             <div className="h-screen bg-[url('/images/back.png')]   bg-cover bg-center bg-no-repeat  "  >
@@ -71,37 +77,94 @@ const Home = () => {
                         <div className=' mt-9  ' ><Slideautoplaycars /></div>
                     </div>
 
-                    <div className='flex flex-col p-7 gap-8 pt-15 justify-center items-center '  >{/**how it work */}
-                        <h3 className='text-7xl  font-semibold '  >How It <span className='text-purple-950' >Works</span></h3>
+                    <div className='flex flex-col p-7 gap-8 pt-15 justify-center items-center bg-gray-100 '  >{/**how it work */}
+                        <h3 className='text-7xl  font-semibold '  >How It <span className='text-purple-900' >Works</span></h3>
                         <p>Towingknox makes roadside assistance quick and effortless. Download the app today and enjoy peace of mind on every journey!</p>
-                        <div className='flex ' >
-                            <div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                            <div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
+                        {/**inner div */}
+                        <div className='flex w-full py-10 flex-col ' >
+                            {workdata.map((value) => (
+                                <>
+                                    <div className={` ${value.id === 2 || value.id === 4 ? "hidden" : "block"}  w-7xl px-45    mx-32 flex flex-col lg:flex-row items-center gap-20 `} >
+                                        <div className='flex-1 border-2 hover:bg-purple-900 hover:text-white border-gray-200 shadow-xl rounded-2xl  h-40 max-w-2xl p-5 px-11  '    >
+                                            <h3 className='text-3xl p-2  font-semibold  font-black'   >{value.title}</h3>
+                                            <p className='leading-relaxed text-[16px] font-medium ' >{value.desc}</p>
+                                        </div>
+                                        <div className='flex-1'  >
+                                            <img className='h-140' src={value.img} alt="" />
+                                        </div>
+                                    </div>
 
+                                    <div className={` ${value.id === 1 || value.id === 3 ? "hidden" : "block"}    w-7xl px-45   mx-32 flex flex-col lg:flex-row items-center gap-20 `}>
+                                        <div className='flex-1'  >
+                                            <img className='h-140' src={value.img} alt="" />
+                                        </div>
+                                        <div className='flex-1 border-2 hover:bg-purple-900 hover:text-white border-gray-200 shadow-xl rounded-2xl  h-40 max-w-2xl p-5 px-11  '    >
+                                            <h3 className='text-3xl p-2 font-semibold font-black'   >{value.title}</h3>
+                                            <p className='leading-relaxed text-[16px] font-medium ' >{value.desc}</p>
+                                        </div>
+                                    </div>
+
+                                </>
+                            ))}
+
+
+
+                        </div>
 
                     </div>
 
+                    <FooterService />
+                </section>
+                {/**service end here */}
 
+                {/**about us */}
+                <section className="bg-gray-50 py-20 px-6 ">
 
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-4xl font-bold text-blue-900 mb-6">
+                            Why TowingKnox?
+                        </h2>
+                        <p className="text-gray-600 text-lg ">
+                            Towingknox is here to provide seamless assistance, ensuring that no
+                            matter where you are, you’ll get the support you need quickly and
+                            efficiently.
+                        </p>
+                    </div>
 
+                    <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-10">
+                        <Aboutcard
+                            img="/images/"
+                            title="Effortless Booking Experience"
+                            desc="With a user-friendly mobile app, requesting assistance has never been easier, quicker, and more efficient."
+                        />
 
+                        <Aboutcard
+                            img=""
+                            title="Instant Response"
+                            desc="Get immediate assistance with Towingknox’s rapid dispatch system, ensuring help arrives when you need it most."
+                        />
 
+                        <Aboutcard
+                            img=""
+                            title="Affordable & Transparent Pricing"
+                            desc="Enjoy upfront, competitive pricing with no hidden fees — just reliable service at a fair cost."
+                        />
 
+                        <Aboutcard
+                            img=""
+                            title="24/7 Support"
+                            desc="No matter the time of day or night, Towingknox is always ready to assist with emergency roadside services."
+                        />
+                    </div>
 
                 </section>
 
 
+
+
+
+
             </div>
-
-
-
         </>
 
     )
