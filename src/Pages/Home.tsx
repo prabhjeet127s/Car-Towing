@@ -9,6 +9,7 @@ import { SlCalender } from "react-icons/sl";
 import { CiTimer } from "react-icons/ci";
 import { MdPriceCheck } from "react-icons/md";
 import { MdSupportAgent } from "react-icons/md";
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -17,33 +18,36 @@ import { MdSupportAgent } from "react-icons/md";
 
 
 const Home = () => {
-
-
+    const navigate = useNavigate();
     return (
         <>
             <div className="h-screen bg-[url('/images/back.png')]   bg-cover bg-center bg-no-repeat w-full "  >
 
                 <Headers />
-                {/**home */}        <section id='home' >
+                {/**home */}<section id='home' >
                     <div className='flex   h-150 '>
                         <div className='  gap-3 flex flex-col my-35  m-14 '>
 
                             <h1 className='text-4xl font-bold text-white'>Reliable Towing Services When You Need Them The Most</h1>
                             <h2 className='text-2xl font-bold text-white'>Fast, Affordable, and Always There to Get You Back on the Road</h2>
                             <h3 className='text-2xl mt-3  text-white'>Need Assistance?</h3>
-                            <button className='bg-purple-900 mt-4  w-44 p-2.5 px-3 text-white text-sm rounded-2xl  '>BOOK A SERVICE</button>
+                            <button onClick={() => navigate('/auth/signin')} className='bg-purple-900 mt-4  w-44 p-2.5 px-3 text-white text-sm rounded-2xl  '>BOOK A SERVICE</button>
 
                         </div>
                     </div>
                 </section>
 
-                {/**Service */} <section id='service'>
-                    {/**sliding service */}  <div className='bg-purple-900 p-7  h-auto  '   >
+                {/**Service */}
+                <section id='service'>
+
+                    {/**sliding service */}
+                    <div className='bg-purple-900 p-7  h-auto  '   >
                         <h2 className='font-bold  text-center  text-[25px]  text-white   '   > Our Service </h2>
                         <div className=' mt-9'><Slidesautoplay /></div>
                     </div>
 
-                    <div className="w-full bg-gray-100 p-5 md:py-20 px-6">{/**roadsidetrouble */}
+                    {/**roadsidetrouble */}
+                    <div className="w-full bg-gray-100 p-5 md:py-20 px-6">
                         <div className="md:w-7xl mx-auto  flex flex-col lg:flex-row items-center gap-16">
 
                             <div className="flex-1   ">
@@ -51,7 +55,7 @@ const Home = () => {
                                     src="/images/image14.png"
                                     alt=""
 
-                                    className="    rounded-2xl border-4  object-cover"
+                                    className="rounded-2xl border-4  object-cover"
                                 />
                             </div>
                             <div className="flex-1 p-4 ">
@@ -73,7 +77,7 @@ const Home = () => {
                                     assistance whenever you need it.
                                 </p>
 
-                                <button className="mt-8 bg-blue-950 hover:bg-blue-900 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md transition">
+                                <button onClick={() => navigate('/auth/signin')} className="mt-8 bg-blue-950 hover:bg-blue-900 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-md transition">
                                     BOOK A SERVICE
                                 </button>
                             </div>
@@ -81,12 +85,15 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className=' bg-purple-900 p-7  h-auto'  >{/**slding cars */}
+
+                    {/**slding cars */}
+                    <div className=' bg-purple-900 p-7  h-auto'  >
                         <h2 className='font-bold  text-center  text-[25px]  text-white   '   > Vehicles We Serve </h2>
                         <div className=' mt-9  ' ><Slideautoplaycars /></div>
                     </div>
 
-                    <div className='flex flex-col p-7 gap-8 pt-15 justify-center items-center bg-gray-100 '  >{/**how it work */}
+                    {/**how it work */}
+                    <div className='flex flex-col p-7 gap-8 pt-15 justify-center items-center bg-gray-100 '  >
                         <h3 className='text-7xl  font-semibold '  >How It <span className='text-purple-900' >Works</span></h3>
                         <p>Towingknox makes roadside assistance quick and effortless. Download the app today and enjoy peace of mind on every journey!</p>
                         {/**inner div */}
@@ -120,11 +127,12 @@ const Home = () => {
                     </div>
 
                     <FooterService />
+
                 </section>
                 {/**service end here */}
 
                 {/**about us */}
-                <section className="bg-gray-50 py-20 px-6 ">
+                <section  id='about'  className="bg-gray-50 py-20 px-6 ">
 
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <h2 className="text-4xl font-bold text-blue-900 mb-6">
@@ -188,7 +196,6 @@ const Home = () => {
 
             </div>
         </>
-
     )
 }
 

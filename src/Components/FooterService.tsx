@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const FooterService = () => {
+
+    const navigate=useNavigate()
     return (
 
         <section className="bg-purple-900 text-white py-5 pt-10">
@@ -20,7 +23,7 @@ const FooterService = () => {
                         <p className="mt-4 text-lg">Satisfied Clients and Counting</p>
 
                     
-                        <button className="mt-10 bg-white text-purple-900 px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
+                        <button   onClick={()=>navigate('/auth/signin')} className="mt-10 bg-white text-purple-900 px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
                             BOOK SERVICE
                         </button>
                     </div>

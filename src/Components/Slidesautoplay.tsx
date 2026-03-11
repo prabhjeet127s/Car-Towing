@@ -2,8 +2,11 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 
 function AutoPlay() {
+
+    const navigate=useNavigate();
     const settings = {
         dots: true,
         infinite: true,
@@ -56,7 +59,7 @@ function AutoPlay() {
                 
                 {cards.map((value) => (
                     <div className=" flex justify-center items-center   " >
-                        <div className="border-4 border-white w-27 h-27 rounded-full "  >
+                        <div  onClick={()=>navigate('/auth/signin')}   className="border-4 border-white w-27 h-27 rounded-full "  >
                             <img className="p-4"   src={value.url} alt="helll" />
                         </div>
                         <h3  className="text-white p-3 font-bold "  >{value.title}</h3>

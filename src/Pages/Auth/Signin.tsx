@@ -1,35 +1,71 @@
-import React from 'react'
+import React from "react";
+import { Phone,Lock,Eye } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
+
+
 
 const Signin = () => {
-    return (
+    const navigate=useNavigate()
+  return (
+    <div className="w-full h-screen bg-[url('/images/background-image.png')] bg-cover bg-center flex justify-center items-center">
+      
+      {/* White Card */}
+      <div className="bg-white w-[580px] h-screen flex flex-col items-center pt-12 px-16">
+        
+        {/* Logo */}
+        <img className="w-28 mb-8" src="/images/logo.png" alt="logo" />
 
-        <div className='w-full            '   >
-            <div className="h-screen  sm:bg-[url('/images/background-image.png')]  flex justify-center bg-cover bg-center bg-no-repeat w-full "  >
-                <div className='bg-white w-[580px]  flex flex-col items-center  h-screen'>
-                    <img className='size-27' src="/images/logo.png" alt="" />
+        {/* Title */}
+        <h2 className="text-2xl font-semibold mb-10">Log In</h2>
 
-                    <form action="">
-                        <h3>Log In</h3>
-                        <label htmlFor=""></label>
-
-                        <div>
-                            <input type="text" />
-                            
-                        </div>
-
-                    </form>
-                    
-
-
-
-                </div>
-
-
+        {/* Form */}
+        <form className="w-full flex flex-col gap-6">
+          
+          {/* Phone Number */}
+          <div className="flex flex-col gap-2">
+            <label className="text-gray-600 text-sm">Phone Number</label>
+            <div className="flex items-center border border-gray-300 rounded-lg px-3 py-3 focus-within:border-purple-900">
+              <Phone className="text-purple-900 mr-2" size={20} />
+              <input
+                type="text"
+                placeholder="Enter Phone Number"
+                className="w-full outline-none text-gray-700 placeholder-gray-400"
+              />
             </div>
-        </div>
+          </div>
 
-    )
-}
+          {/* Password */}
+          <div className="flex flex-col gap-2">
+            <label className="text-gray-600 text-sm">Password</label>
+            <div className="flex items-center border border-gray-300 rounded-lg px-3 py-3 focus-within:border-purple-900">
+              <Lock className="text-purple-900 mr-2" size={20} />
+              <input
+                type="password"
+                placeholder="Enter password"
+                className="w-full outline-none text-gray-700 placeholder-gray-400"
+              />
+              <Eye className="text-gray-400 cursor-pointer" size={20} />
+            </div>
 
-export default Signin
+            <button onClick={()=>navigate('/auth/forget')}  className="text-right text-purple-900 text-sm ">
+              Forget Password?
+            </button>
+          </div>
 
+          <button className="mt-6 bg-purple-950 text-white py-4 rounded-full text-lg font-medium hover:bg-purple-900 transition">
+            Continue
+          </button>
+        </form>
+
+        <p className="mt-10 text-gray-500">
+          Don't have an account?{" "}
+          <span className="text-purple-900 font-medium ">
+            Sign up
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Signin;
