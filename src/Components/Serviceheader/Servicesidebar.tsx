@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { X } from "lucide-react";
+import Sidebarcontext from "../../Context/Sidebar/SideContext";
 
 const Servicesidebar = () => {
+
+    const { sidebaropen, setsidebaropen } = useContext(Sidebarcontext)
+
+
     const sidebarMenu = [
         {
             title: "Book A Service",
@@ -47,19 +52,21 @@ const Servicesidebar = () => {
     ];
 
     return (
-        <aside className="fixed left-60 top-0 h-screen w-80 bg-gray-100 shadow-lg flex flex-col">
+        <aside className={` 
+                  ${sidebaropen ? "md:max-w-xl" : "w-0 overflow-hidden"}
+                fixed md:left-98 top-0 h-screen  bg-gray-100  z-100 shadow-lg flex flex-col`}>
 
-               <div className="flex justify-end p-4">
-                <button className=" hover:text-gray-700">
+            <div className="flex justify-end p-4">
+
+                <button onClick={() => setsidebaropen(!sidebaropen)} className=" hover:text-gray-700">
                     <X size={26} />
                 </button>
             </div>
 
-            {/* Menu Items */}
             <div className="flex flex-col p-6 gap-1">
                 {sidebarMenu.map((item) => (
 
-                    <div  className={`flex   items-center gap-4 py-3 border-b border-gray-300 hover:text-purple-700 transition`}
+                    <div className={`flex   items-center gap-4 py-3 border-b border-gray-300 hover:text-purple-700 transition`}
                     >
                         <img src={item.img} alt="" className="w-6 h-6" />
                         <span className=" ">{item.title}</span>
@@ -67,10 +74,8 @@ const Servicesidebar = () => {
                 ))}
             </div>
 
-            {/* Spacer */}
             <div className="flex-grow"></div>
 
-            {/* Logout Button Bottom */}
             <div className="p-6">
                 <NavLink
                     to="/logout"
