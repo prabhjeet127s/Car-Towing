@@ -1,8 +1,19 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+
 
 const WelcomeMessage = () => {
+const location=useLocation();
+const path=location.pathname;
+console.log(path)
+
+
+
     return (
-        <div className="flex items-start p-3 gap-3 w-full pl-10">
+<>
+        {path!=="/towberbooked"  && path!=="/cancelride"  &&
+
+         <div className="flex items-start p-3 gap-3 w-full pl-10">
             <img
                 src="/images/person.gif"
                 alt="Animated Person"
@@ -19,7 +30,8 @@ const WelcomeMessage = () => {
                 </div>
             </div>
 
-        </div>
+        </div> }
+    </>
     );
 };
 

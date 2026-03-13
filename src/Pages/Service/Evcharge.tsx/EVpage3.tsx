@@ -1,23 +1,26 @@
-import React, { useContext, useState } from "react";
-import EVPage2context from "../../../Context/Sidebar/Evcharge/Page2/EVpage2context";
+import  { useContext, useState } from "react";
+import { EVPage3context } from "../../../Context/Sidebar/Evcharge/Page3/EVpage3context";
 
-const EVpage2 = () => {
+
+const EVpage3 = () => {
 
   const [selected, setSelected] = useState("");
-  const evpage2data=useContext(EVPage2context)
-
+  const evpage3data=useContext(EVPage3context)
+  
 
   return (
-    <div className="px-6 py-5 w-full flex flex-col gap-6">
+    <div className="px-6 pt-20 w-full flex flex-col gap-10">
+
+      {/* Step Icons */}
       <div className="flex justify-center gap-2">
         <img src="/images/1.svg" alt="" />
         <img src="/images/dotted.svg" alt="" />
-        <img src="/images/step2.svg" alt="" />
+        <img src="/images/2.svg" alt="" />
         <img src="/images/dotted.svg" alt="" />
-        <img src="/images/3.svg" alt="" />
+        <img src="/images/step3.svg" alt="" />
       </div>
 
-      {evpage2data.map((item) => (
+      {evpage3data.map((item) => (
         <div key={item.id} className="flex flex-col gap-4 items-center">
 
           <h2 className="text-lg font-medium text-center">
@@ -30,21 +33,21 @@ const EVpage2 = () => {
               <button
                 key={option.value}
                 onClick={() => setSelected(option.value)}
-                className={`w-[70%] hover:bg-purple-900 hover:text-white  py-3 rounded-full border transition
+                className={`w-[70%] py-3 rounded-full border transition hover:bg-purple-900 hover:text-white
                 ${
                   selected === option.value
                     ? "bg-purple-900 text-white"
                     : "bg-white text-black"
-                }`} >
+                }`}
+              >
                 {option.label}
               </button>
             ))}
           </div>
         </div>
       ))}
-
     </div>
   );
 };
 
-export default EVpage2;
+export default EVpage3;

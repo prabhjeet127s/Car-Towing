@@ -50,15 +50,16 @@ const Servicesidebar = () => {
             img: "/images/Delete User.svg", danger: true
         },
     ];
+    
 
     return (
         <aside className={` 
-                  ${sidebaropen ? "md:max-w-xl" : "w-0 overflow-hidden"}
+                  ${sidebaropen ? "md:max-w-xl transition duration-200 ease-in-out  " : "w-0 overflow-hidden"}
                 fixed md:left-98 top-0 h-screen  bg-gray-100  z-100 shadow-lg flex flex-col`}>
 
             <div className="flex justify-end p-4">
 
-                <button onClick={() => setsidebaropen(!sidebaropen)} className=" hover:text-gray-700">
+                <button onClick={() => setsidebaropen(!sidebaropen)} className="       hover:text-gray-700">
                     <X size={26} />
                 </button>
             </div>
