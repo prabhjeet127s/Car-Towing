@@ -11,11 +11,10 @@ export  const Pagesswitchcontext=createContext<any>(null);
 export default function PagesswitchProvider({children}:any){
 
 
-    const [page, setpage] = useState(2)
+    const [page, setpage] = useState(0)
 
 
     return(
-
 
         <Pagesswitchcontext.Provider  value={{page,setpage}} >
             {children}

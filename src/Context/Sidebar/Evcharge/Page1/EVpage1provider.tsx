@@ -1,4 +1,4 @@
-import React from 'react'
+
 import EVPage1context from './EVpage1context'
 
 const EVpage1provider = ({children}) => {

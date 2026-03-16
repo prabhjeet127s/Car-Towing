@@ -1,10 +1,10 @@
-import React from "react";
+
 import { User, Phone, Lock, Eye } from "lucide-react";
 
 const Signup = () => {
   return (
     <div className="w-full h-screen bg-[url('/images/background-image.png')] bg-cover bg-center  flex justify-center items-center">
-      <div className="bg-white w-[580px] h-screen flex flex-col items-center pt-10 px-16 overflow-y-auto">
+      <div className="bg-white w-145 h-screen flex flex-col items-center pt-10 px-16 overflow-y-auto">
         
         <img className="w-28 mb-6" src="/images/logo.png" alt="logo" />
         <h2 className="text-2xl font-semibold mb-8">Sign Up</h2>

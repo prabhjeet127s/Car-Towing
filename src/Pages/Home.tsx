@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Headers from '../Components/Headers'
 import Slidesautoplay from '../Components/Slidesautoplay'
 import Slideautoplaycars from '../Components/Slideautoplaycars'
@@ -24,7 +24,7 @@ const Home = () => {
             <div className="h-screen bg-[url('/images/back.png')]   bg-cover bg-center bg-no-repeat w-full "  >
 
                 <Headers />
-                {/**home */}<section id='home' >
+                <section id='home' >
                     <div className='flex   h-150 '>
                         <div className='  gap-3 flex flex-col my-35  m-14 '>
 

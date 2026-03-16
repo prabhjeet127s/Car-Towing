@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import './App.css'
 import Home from './Pages/Home'
 import Signin from './Pages/Auth/Signin'
@@ -18,46 +18,58 @@ import EVpage4provider from './Context/Sidebar/Evcharge/Page4/EVpage4provider'
 import EVuserdetail from './Pages/Service/Evcharge.tsx/EVuserdetail'
 import EVtowerbooked from './Pages/Service/Evcharge.tsx/EVtowerbooked'
 import EVcancelride from './Pages/Service/Evcharge.tsx/EVcancelride'
-import Services from './Pages/Service/Dashboard/Services'
+// import Services from './Pages/Service/Dashboard/Services'
 import PagesswitchProvider from './Context/PagesSwitich/PageswitchContext'
 
 
 function App() {
+  const location = useLocation()
+  const isAuth = location.pathname.startsWith('/auth');
+  const homescreen = location.pathname===('/')
 
+  console.log(isAuth  +'auth')
+  console.log(homescreen  +'home')
 
   return (
-    <><Sidebarprovider>
+    <>
 
+     {( isAuth || homescreen) ? (
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/auth/signin' element={<Signin />} />
         <Route path='/auth/signup' element={<Signup />} />
         <Route path='/auth/forget' element={<Forget />} />
       </Routes>
-      <PagesswitchProvider>
-        <EVpage1provider>
-          <EVpage2provider>
-            <EVpage3provider>
-              <EVpage4provider>
-                <DefaultLayout  >
-                  <Routes>
-                    <Route path='/service' element={<Service />} />
-                    <Route path='/evpage1' element={<EVpage1 />} />
-                    <Route path='/evpage2' element={<EVpage2 />} />
-                    <Route path='/evpage3' element={<EVpage3 />} />
-                    <Route path='/evpage4' element={<EVpage4 />} />
-                    <Route path='/userdetail' element={<EVuserdetail />} />
-                    <Route path='/towberbooked' element={<EVtowerbooked />} />
-                    <Route path='/cancelride' element={<EVcancelride />} />
-                  </Routes>
-                </DefaultLayout>
-              </EVpage4provider>
-            </EVpage3provider>
-          </EVpage2provider>
-        </EVpage1provider>
-      </PagesswitchProvider>
+      ):
+      
+      (
+      <Sidebarprovider>
+        <PagesswitchProvider>
+          <EVpage1provider>
+            <EVpage2provider>
+              <EVpage3provider>
+                <EVpage4provider>
+                  <DefaultLayout  >
+                    <Routes>
+                      <Route path='/service' element={<Service />} />
+                      <Route path='/evpage1' element={<EVpage1 />} />
+                      <Route path='/evpage2' element={<EVpage2 />} />
+                      <Route path='/evpage3' element={<EVpage3 />} />
+                      <Route path='/evpage4' element={<EVpage4 />} />
+                      <Route path='/userdetail' element={<EVuserdetail />} />
+                      <Route path='/towberbooked' element={<EVtowerbooked />} />
+                      <Route path='/cancelride' element={<EVcancelride />} />
+                    </Routes>
+                  </DefaultLayout>
+                </EVpage4provider>
+              </EVpage3provider>
+            </EVpage2provider>
+          </EVpage1provider>
+        </PagesswitchProvider>
 
-    </Sidebarprovider>
+      </Sidebarprovider>
+      )
+    }
 
     </>
 
