@@ -102,7 +102,7 @@ const Home = () => {
                                 <>
                                     <div className={` ${value.id === 2 || value.id === 4 ? "hidden" : "block"} md:w-7xl  px-45  mx-32 flex flex-col lg:flex-row items-center gap-20 `} >
                                         <div className='flex-1  border-2 hover:bg-purple-900 hover:text-white border-gray-200 shadow-xl rounded-2xl  h-40 sm:w-auto md:max-w-2xl p-5 px-11  '    >
-                                            <h3 className='text-3xl p-2  font-semibold  font-black'   >{value.title}</h3>
+                                            <h3 className='text-3xl p-2  font-semibold'   >{value.title}</h3>
                                             <p className='leading-relaxed text-[16px] font-medium ' >{value.desc}</p>
                                         </div>
                                         <div className='flex-1'  >
@@ -115,7 +115,7 @@ const Home = () => {
                                             <img className='h-140' src={value.img} alt="" />
                                         </div>
                                         <div className='flex-1 border-2 hover:bg-purple-900 hover:text-white border-gray-200 shadow-xl rounded-2xl  h-40 max-w-2xl p-5 px-11  '    >
-                                            <h3 className='text-3xl p-2 font-semibold font-black'   >{value.title}</h3>
+                                            <h3 className='text-3xl p-2 font-black'   >{value.title}</h3>
                                             <p className='leading-relaxed text-[16px] font-medium ' >{value.desc}</p>
                                         </div>
                                     </div>
