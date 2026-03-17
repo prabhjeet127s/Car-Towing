@@ -20,7 +20,6 @@ const Page1 = ({ evpage1data }) => {
     }
     console.log(vehicleinformation)
 
-
     return (
         <div className="h-125    "    >
             <div className=" px-10 py-5  overflow-y-auto h-full flex flex-col gap-2">
@@ -39,7 +38,7 @@ const Page1 = ({ evpage1data }) => {
                 {evpage1data.map((item) => (
                     <div key={item.id} className="flex flex-col gap-4">
 
-                        <label className="font-medium text-gray-800">
+                        <label aria-required className="font-medium text-gray-800">
                             {item.title}
                             {item.type !== "select" && (
                                 <span className="text-red-500 ml-1">*</span>
@@ -47,7 +46,7 @@ const Page1 = ({ evpage1data }) => {
                         </label>
 
                         {item.type === "select" && (
-                            <select onChange={(e)=>handlestoreselectoption(item.field,e.target.value)} className="border rounded-xl bg-gray-200  px-4 py-3 w-full">
+                            <select required onChange={(e)=>handlestoreselectoption(item.field,e.target.value)} className="border rounded-xl bg-gray-200  px-4 py-3 w-full">
                                 <option>Select an option</option>
                                 {item.options.map((opt, index) => (
                                     <option key={index}>{opt}</option>
@@ -57,7 +56,7 @@ const Page1 = ({ evpage1data }) => {
                         {item.type === "button" && (
                             <div className="flex gap-3 flex-wrap">
                                 {item.options.map((value, index) => (
-                                    <button
+                                    <button 
                                         key={index}
                                         onClick={() => handlebuttonSelect(item.id,item.field, value)}
                                         className={`px-4 py-2 rounded-lg border 

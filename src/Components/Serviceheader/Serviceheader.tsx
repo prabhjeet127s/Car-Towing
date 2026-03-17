@@ -14,6 +14,7 @@ const Serviceheader = () => {
   const location=useLocation();
   const cancelurl=location.pathname.startsWith('/cancelride')
   const towberurl=location.pathname.startsWith('/towberbooked')
+  
 
   const { sidebaropen, setsidebaropen } = useContext(Sidebarcontext)
   const {page,setpage}=useContext(Pagesswitchcontext)
@@ -23,7 +24,7 @@ const Serviceheader = () => {
   return (
     <header className="bg-purple-950 w-full px-6 py-2 flex items-center justify-between shadow-lg">
       <div className="flex-1 flex justify-start">
-        { page==0 || cancelurl || towberurl ?(
+        { page==0 || cancelurl || towberurl  ?(
           <button onClick={() => setsidebaropen(!sidebaropen)}
           className="text-white outline-none hover:opacity-80 transition-opacity">
           <Menu size={23} />

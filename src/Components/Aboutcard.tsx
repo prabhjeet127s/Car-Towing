@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 const Aboutcard = ({title,desc,img}:any) => {
   return (

@@ -7,26 +7,19 @@ const Cancelride = () => {
 
     const { setcancelridereason, cancelridereason } = useContext(EVchargepayload)
     const [textareaopen, settextareaopen] = useState('')
-
-
     const navigate = useNavigate()
-
     const handleonchange = (value) => {
         settextareaopen(value)
         setcancelridereason(value)
-       console.log(cancelridereason)
+        console.log(cancelridereason)
 
     }
-
     const handlecancel = () => {
-
         toast.success('Booking Cancelled Sucessfully ')
         setTimeout(() => {
             navigate('/service')
         }, 1000);
     }
-
-
     const cancelridedata = [
         {
             id: "A.",
@@ -68,7 +61,7 @@ const Cancelride = () => {
                 {cancelridedata.map((value) => (
                     <div className='flex flex-col gap-3  ' >
                         <div className='flex gap-2  ' >
-                            <input name='option' value={value.label} onChange={(e) => handleonchange(e.target.value)} type="radio" />
+                            <input required name='option' value={value.label} onChange={(e) => handleonchange(e.target.value)} type="radio" />
                             <label htmlFor="">
                                 <span>{value.id}</span>
                                 {value.label}
@@ -76,7 +69,7 @@ const Cancelride = () => {
                         </div>
                         {value.id == "F." && textareaopen == 'Other' ? (<div>
                             <textarea
-                            onChange={(e)=>handleonchange(e.target.value)}
+                                onChange={(e) => handleonchange(e.target.value)}
                                 placeholder='Please Specify Your Reason '
                                 className=' focus-within:border-black p-5  w-full h-28 rounded-2xl border-2 border-gray-200'
                                 name="" id=""></textarea>

@@ -33,7 +33,7 @@ const Page2 = ({ evpage2data }) => {
       {evpage2data.map((item) => (
         <div key={item.id} className="flex flex-col gap-4 items-center">
 
-          <h2 className="text-lg font-medium text-center">
+          <h2 aria-required className="text-lg font-medium text-center">
             {item.title}
           </h2>
 

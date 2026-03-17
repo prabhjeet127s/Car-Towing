@@ -1,7 +1,9 @@
 
 import { User, Phone, Lock, Eye } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate=useNavigate()
   return (
     <div className="w-full h-screen bg-[url('/images/background-image.png')] bg-cover bg-center  flex justify-center items-center">
       <div className="bg-white w-145 h-screen flex flex-col items-center pt-10 px-16 overflow-y-auto">
@@ -74,7 +76,7 @@ const Signup = () => {
 
         <p className="mt-8 text-gray-500 mb-10">
           Already have an account?{" "}
-          <span className="text-purple-900 font-medium cursor-pointer">
+          <span onClick={()=>navigate('/auth/signin')} className="text-purple-900 font-medium cursor-pointer">
             Log In
           </span>
         </p>
