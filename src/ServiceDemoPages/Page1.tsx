@@ -1,14 +1,25 @@
 import { useContext, useState } from "react";
 import { Pagesswitchcontext } from "../Context/PagesSwitich/PageswitchContext";
+import { EVchargepayload } from "../Context/Payload/EVcharge/EVchargepayload";
 
-const Page1 = ({evpage1data}) => {
+const Page1 = ({ evpage1data }) => {
 
     const [answers, setAnswers] = useState({});
     const { page, setpage } = useContext(Pagesswitchcontext)
+    const {vehicleinformation,setvehicleinformation}=useContext(EVchargepayload)
 
-    const handleSelect = (id, value) => {
+    const handlebuttonSelect = (id,field, value) => {
         setAnswers({ ...answers, [id]: value });
+        setvehicleinformation({...vehicleinformation,[field]:value }
+        )
     };
+
+    const handlestoreselectoption=(field,option)=>{
+        setvehicleinformation({...vehicleinformation,[field]:option}
+        )
+    }
+    console.log(vehicleinformation)
+
 
     return (
         <div className="h-125    "    >
@@ -36,7 +47,7 @@ const Page1 = ({evpage1data}) => {
                         </label>
 
                         {item.type === "select" && (
-                            <select className="border rounded-xl bg-gray-200  px-4 py-3 w-full">
+                            <select onChange={(e)=>handlestoreselectoption(item.field,e.target.value)} className="border rounded-xl bg-gray-200  px-4 py-3 w-full">
                                 <option>Select an option</option>
                                 {item.options.map((opt, index) => (
                                     <option key={index}>{opt}</option>
@@ -48,7 +59,7 @@ const Page1 = ({evpage1data}) => {
                                 {item.options.map((value, index) => (
                                     <button
                                         key={index}
-                                        onClick={() => handleSelect(item.id, value)}
+                                        onClick={() => handlebuttonSelect(item.id,item.field, value)}
                                         className={`px-4 py-2 rounded-lg border 
                                               ${answers[item.id] === value
                                                 ? "bg-purple-900 text-white"

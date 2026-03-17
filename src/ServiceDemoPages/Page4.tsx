@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { EVchargepayload } from "../Context/Payload/EVcharge/EVchargepayload";
 
 
-const Page4 = ({evpage4data}) => {
+
+const Page4 = ({ evpage4data }) => {
 
     const navigate = useNavigate()
-    const [location, setLocation] = useState("");
+
+    const { vehiclelocation, setvehiclelocation } = useContext(EVchargepayload)
+
+    const handlechange = (e) => {
+        setvehiclelocation(e)
+
+    }
+    console.log(vehiclelocation)
 
     return (
         <div className="px-6 py-5 w-full flex flex-col gap-6">
@@ -26,20 +35,16 @@ const Page4 = ({evpage4data}) => {
                         <input
                             type="text"
                             placeholder={item.placeholder}
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                            className="w-[80%] border rounded-full px-5 py-3 outline-none"
-                        />
+                            value={vehiclelocation}
+                            onChange={(e) => handlechange(e.target.value)}
+                            className="w-[80%] border rounded-full px-5 py-3 outline-none" />
                     )}
                     <button onClick={() => navigate('/userdetail')} className="w-[80%] bg-purple-900 text-white py-3 rounded-full">
                         Continue
                     </button>
-
                 </div>
             ))}
-
         </div>
     );
 };
-
 export default Page4;

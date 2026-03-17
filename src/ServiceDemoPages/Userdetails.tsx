@@ -1,16 +1,29 @@
 
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { EVchargepayload } from '../Context/Payload/EVcharge/EVchargepayload'
 
 const Userdetail = () => {
     const navigate = useNavigate()
+    const { userdetails, setuserdetails } = useContext(EVchargepayload)
 
     const evuserdata = [
-
-        "Full Name ",
+        "FullName",
         "Email",
-        "Phone Number",
-        "Vehicle Number"
+        "PhoneNum",
+        "VehicleNum"
     ]
+    const handleomchange = (e, field) => {
+        setuserdetails({ ...userdetails, [field]: e })
+    }
+
+    console.log(userdetails)
+
+    const handlenextpage = (e) => {
+        e.preventDefault()
+        console.log(userdetails)
+        navigate('/towberbooked')
+    }
 
     return (
         <div className=' flex flex-col overflow-x-hidden h-[67vh] gap-5  px-6 md:pt-5' >
@@ -22,25 +35,22 @@ const Userdetail = () => {
                 <img src="/images/step3.svg" alt="" />
             </div>
             <div className='flex flex-col  ' >
-                <form action="">
+                <form action="" onSubmit={(e)=>handlenextpage(e)} >
                     <h3 className='text-center mb-4 font-semibold  '  >Enter Your Details</h3>
                     <div className='flex flex-col gap-2' >
                         {evuserdata.map((value) => (
                             <div className='flex flex-col  gap-5 '>
-
-                                <label
-                                    htmlFor=""
-                                    className=''
-                                >{value}</label>
-
-                                <input
+                                <label>
+                                    {value}
+                                </label>
+                                <input onChange={(e) => handleomchange(e.target.value, value)}
                                     type="text"
                                     name=""
                                     id=""
                                     className='border-2  p-2 bg-gray-200 rounded-2xl border-gray-300    ' />
                             </div>
                         ))}
-                        <button onClick={() => navigate('/towberbooked')} className='bg-purple-900 p-2 text-white rounded-2xl'>Continue</button>
+                        <button  className='bg-purple-900 p-2 text-white rounded-2xl'>Continue</button>
                     </div>
                 </form>
             </div>

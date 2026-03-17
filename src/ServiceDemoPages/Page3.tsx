@@ -1,15 +1,16 @@
-import  { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Pagesswitchcontext } from "../Context/PagesSwitich/PageswitchContext";
 
 
-const Page3 = ({evpage3data}) => {
+
+const Page3 = ({ evpage3data }) => {
 
   const [selected, setSelected] = useState("");
-  const {page,setpage}= useContext(Pagesswitchcontext)
+  const { page, setpage } = useContext(Pagesswitchcontext)
 
-  const handleonclick=({value})=>{
+  const handleonclick = (value) => {
     setSelected(value)
-    setpage(page+1)
+    setpage(page + 1)
   }
 
 
@@ -35,16 +36,16 @@ const Page3 = ({evpage3data}) => {
           <div className="flex flex-col gap-4 w-full items-center">
 
             {item.options.map((option) => (
+
               <button
-              
+
                 key={option.value}
-                onClick={()=>handleonclick(option.value)}
+                onClick={() => handleonclick(option.value)}
                 className={`w-[70%] py-3 rounded-full border transition hover:bg-purple-900 hover:text-white
-                ${
-                  selected === option.value
+                ${selected === option.value
                     ? "bg-purple-900 text-white"
                     : "bg-white text-black"
-                }`}
+                  }`}
               >
                 {option.label}
               </button>

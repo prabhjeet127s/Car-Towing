@@ -20,6 +20,7 @@ import EVtowerbooked from './Pages/Service/Evcharge.tsx/EVtowerbooked'
 import EVcancelride from './Pages/Service/Evcharge.tsx/EVcancelride'
 // import Services from './Pages/Service/Dashboard/Services'
 import PagesswitchProvider from './Context/PagesSwitich/PageswitchContext'
+import EVchargepayloadProvider from './Context/Payload/EVcharge/EVchargepayload'
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
       ):
       
       (
+        <EVchargepayloadProvider>
       <Sidebarprovider>
         <PagesswitchProvider>
           <EVpage1provider>
@@ -66,8 +68,8 @@ function App() {
             </EVpage2provider>
           </EVpage1provider>
         </PagesswitchProvider>
-
       </Sidebarprovider>
+      </EVchargepayloadProvider>
       )
     }
 
