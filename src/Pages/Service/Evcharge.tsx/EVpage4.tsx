@@ -3,13 +3,14 @@ import EVPage4context from "../../../Context/Sidebar/Evcharge/Page4/EVpage4conte
 
 
 import Page4 from "../../../ServiceDemoPages/Page4";
+import { useSelector } from "react-redux";
 
 
 
 const EVpage4 = () => {
     
-
-    const evpage4data = useContext(EVPage4context)
+const evpage4data=useSelector((state:any)=>state.EVcharge4.evpage4data)
+   // const evpage4data = useContext(EVPage4context)
     
 
     return (

@@ -21,7 +21,6 @@ export default function EVchargepayloadProvider({ children }) {
             chargertype: "",
             chargermethod: ""
         }
-
     )
 
     // page 2
@@ -35,11 +34,10 @@ export default function EVchargepayloadProvider({ children }) {
         FullName: '',
         Email: '',
         PhoneNum: '',
-        VehicleNum: ''
+        VehicleNum:''
     })
     //cancelride
     const [cancelridereason, setcancelridereason] = useState("")
-
 
     return (
         <EVchargepayload.Provider value={{
@@ -48,8 +46,6 @@ export default function EVchargepayloadProvider({ children }) {
         }} >
             {children}
         </EVchargepayload.Provider>
-
-
     )
 
 

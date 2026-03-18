@@ -4,12 +4,20 @@ import { useContext } from 'react';
 import Sidebarcontext from '../../Context/Sidebar/SideContext';
 import { ArrowLeft } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
-import { Pagesswitchcontext } from '../../Context/PagesSwitich/PageswitchContext';
+import { useDispatch, useSelector } from 'react-redux';
+//import { Pagesswitchcontext } from '../../Context/PagesSwitich/PageswitchContext';
+import { setpage } from '../../Redux/Slice/PageSwitichslice';
+
 
 
 
 
 const Serviceheader = () => {
+  const dispatch=useDispatch();
+  const page=useSelector(
+    (state:any)=>state.pageswitch.page
+  )
+
 
   const location=useLocation();
   const cancelurl=location.pathname.startsWith('/cancelride')
@@ -17,7 +25,7 @@ const Serviceheader = () => {
   
 
   const { sidebaropen, setsidebaropen } = useContext(Sidebarcontext)
-  const {page,setpage}=useContext(Pagesswitchcontext)
+ // const {page,setpage}=useContext(Pagesswitchcontext)
 
   console.log(page)
 
@@ -30,7 +38,7 @@ const Serviceheader = () => {
           <Menu size={23} />
         </button>
         ):( <button
-         onClick={()=>setpage(page-1)}
+         onClick={()=>dispatch(setpage(page-1))}
            className='text-white  '  >
           <ArrowLeft />
         </button>) }

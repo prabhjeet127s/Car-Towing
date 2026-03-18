@@ -1,16 +1,20 @@
-import { Pagesswitchcontext } from "../../../Context/PagesSwitich/PageswitchContext"
-import { useContext } from 'react'
+//import { Pagesswitchcontext } from "../../../Context/PagesSwitich/PageswitchContext"
+//import { useContext } from 'react'
 import Services from "./Services"
 import EVpage1 from "../Evcharge.tsx/EVpage1"
 import EVpage2 from "../Evcharge.tsx/EVpage2"
 import EVpage3 from "../Evcharge.tsx/EVpage3"
 import EVpage4 from "../Evcharge.tsx/EVpage4"
+import { useSelector } from "react-redux"
+
 
 
 
 const Service = () => {
+    const page=useSelector(
+        (state:any)=>state.pageswitch.page)
 
-    const { page } = useContext(Pagesswitchcontext)
+  //  const { page } = useContext(Pagesswitchcontext)
 
     return (
         <>

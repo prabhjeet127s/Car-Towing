@@ -1,22 +1,26 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { EVchargepayload } from "../Context/Payload/EVcharge/EVchargepayload";
-import { Pagesswitchcontext } from "../Context/PagesSwitich/PageswitchContext";
+//import { Pagesswitchcontext } from "../Context/PagesSwitich/PageswitchContext";
+import { useDispatch } from "react-redux";
+import { setpage } from "../Redux/Slice/PageSwitichslice";
 
 
 
 const Page4 = ({ evpage4data }) => {
+    const dispatch=useDispatch()
 
     const navigate = useNavigate()
-    const {setpage}=useContext(Pagesswitchcontext)
+    // const {setpage}=useContext(Pagesswitchcontext)
     const { vehiclelocation, setvehiclelocation } = useContext(EVchargepayload)
+
 
 
     const handlechange = (e) => {
         setvehiclelocation(e)
     }
     const handlecontinue = () => {
-        setpage(0)
+        dispatch(setpage(0))
         navigate('/userdetail')
     }
 

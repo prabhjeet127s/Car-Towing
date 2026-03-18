@@ -1,24 +1,32 @@
 import { useContext, useState } from "react";
-import { Pagesswitchcontext } from "../Context/PagesSwitich/PageswitchContext";
 import { EVchargepayload } from "../Context/Payload/EVcharge/EVchargepayload";
+import { setpage } from "../Redux/Slice/PageSwitichslice";
+import { useDispatch, useSelector } from "react-redux"
+
 
 
 
 
 const Page2 = ({ evpage2data }) => {
 
+  const dispatch=useDispatch();
+
+  const page=useSelector(
+    (state:any)=>state.pageswitch.page
+  )
+  console.log(page  +"hello" )
+
   const [selected, setSelected] = useState("");
-  const { page, setpage } = useContext(Pagesswitchcontext)
-  const { servicefor, setservicefor } = useContext(EVchargepayload)
+//  const { page, setpage } = useContext(Pagesswitchcontext)
+  const  setservicefor  = useContext(EVchargepayload)
 
   const handleonclick = (value) => {
     setSelected(value)
-    setpage(page + 1)
+    dispatch(setpage(page + 1))
     setservicefor(value)
   }
 
-  console.log(servicefor)
-
+  
 
   return (
     <div className="px-6 py-5 w-full flex flex-col gap-6">

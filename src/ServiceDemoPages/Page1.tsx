@@ -1,21 +1,27 @@
 import { useContext, useState } from "react";
-import { Pagesswitchcontext } from "../Context/PagesSwitich/PageswitchContext";
+//import { Pagesswitchcontext } from "../Context/PagesSwitich/PageswitchContext";
 import { EVchargepayload } from "../Context/Payload/EVcharge/EVchargepayload";
+import { useDispatch, useSelector} from "react-redux";
+import { setpage } from "../Redux/Slice/PageSwitichslice";
 
 const Page1 = ({ evpage1data }) => {
+    const dispatch=useDispatch()
+
+    const page=useSelector((state:any)=>state.pageswitch.page)
+
 
     const [answers, setAnswers] = useState({});
-    const { page, setpage } = useContext(Pagesswitchcontext)
-    const {vehicleinformation,setvehicleinformation}=useContext(EVchargepayload)
+    // const { page, setpage } = useContext(Pagesswitchcontext)
+    const { vehicleinformation, setvehicleinformation } = useContext(EVchargepayload)
 
-    const handlebuttonSelect = (id,field, value) => {
+    const handlebuttonSelect = (id, field, value) => {
         setAnswers({ ...answers, [id]: value });
-        setvehicleinformation({...vehicleinformation,[field]:value }
+        setvehicleinformation({ ...vehicleinformation, [field]: value }
         )
     };
 
-    const handlestoreselectoption=(field,option)=>{
-        setvehicleinformation({...vehicleinformation,[field]:option}
+    const handlestoreselectoption = (field, option) => {
+        setvehicleinformation({ ...vehicleinformation, [field]: option }
         )
     }
     console.log(vehicleinformation)
@@ -46,7 +52,7 @@ const Page1 = ({ evpage1data }) => {
                         </label>
 
                         {item.type === "select" && (
-                            <select required onChange={(e)=>handlestoreselectoption(item.field,e.target.value)} className="border rounded-xl bg-gray-200  px-4 py-3 w-full">
+                            <select required onChange={(e) => handlestoreselectoption(item.field, e.target.value)} className="border rounded-xl bg-gray-200  px-4 py-3 w-full">
                                 <option>Select an option</option>
                                 {item.options.map((opt, index) => (
                                     <option key={index}>{opt}</option>
@@ -56,9 +62,9 @@ const Page1 = ({ evpage1data }) => {
                         {item.type === "button" && (
                             <div className="flex gap-3 flex-wrap">
                                 {item.options.map((value, index) => (
-                                    <button 
+                                    <button
                                         key={index}
-                                        onClick={() => handlebuttonSelect(item.id,item.field, value)}
+                                        onClick={() => handlebuttonSelect(item.id, item.field, value)}
                                         className={`px-4 py-2 rounded-lg border 
                                               ${answers[item.id] === value
                                                 ? "bg-purple-900 text-white"
@@ -72,7 +78,7 @@ const Page1 = ({ evpage1data }) => {
                         )}
                     </div>
                 ))}
-                <button onClick={() => (setpage(page + 1))} className="w-full mt-6  bg-purple-900 rounded-2xl p-2 font-bold text-white"   > Continue</button>
+                <button onClick={() => dispatch(setpage(page + 1))} className="w-full mt-6  bg-purple-900 rounded-2xl p-2 font-bold text-white"   > Continue</button>
             </div>
         </div>
     );
