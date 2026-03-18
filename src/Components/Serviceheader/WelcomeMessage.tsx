@@ -7,6 +7,7 @@ const WelcomeMessage = () => {
 
     return (
         <>
+        
             {path !== "/towberbooked" && path !== "/cancelride" &&
 
                 <div className="flex items-start p-3 gap-3 w-full pl-10">
@@ -26,7 +27,7 @@ const WelcomeMessage = () => {
                     </div>
 
                 </div>}
-            <div className="bg-blue-200 mx-5 p-3  m-3" >
+   {  /*       <div className="bg-blue-200 mx-5 p-3  m-3" >
                 <h3 className="text-center" >Your Current Booking</h3>
                 <div className="bg-white p-2.5" >
                     <div className="flex  flex-wrap px-24   gap-20" >
@@ -38,6 +39,7 @@ const WelcomeMessage = () => {
                     <div></div>
                 </div>
             </div>
+        */}
         </>
     );
 };
