@@ -65,8 +65,7 @@ function AutoPlay() {
                     </div>
                 ))}
 
-                
-
+        
             </Slider>
         </div>
     );
